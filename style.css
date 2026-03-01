@@ -1,133 +1,122 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:arial, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-body{
-background:linear-gradient(135deg,#0b0f6b,#2c3cff);
-min-height:100vh;
-color:#333;
+body {
+    background: linear-gradient(135deg, #0b0f6b, #2c3cff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 50px;
 }
 
-.navbar{
-background:#111;
-padding:15px;
-text-align:center;
+/* Container for both boxes */
+.main {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
 }
 
-.navbar button{
-background:#0b0f6b;
-color:white;
-border:none;
-padding:10px 20px;
-margin:5px;
-border-radius:20px;
-cursor:pointer;
-transition:0.3s;
+/* Boxes */
+.box {
+    width: 400px;
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    color: white;
+    background: transparent; /* allow gradient to show */
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.navbar button:hover{
-background:#2c3cff;
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
 }
 
-.section{
-display:none;
-padding:40px;
+/* Gradients for each box */
+#manage {
+    background: linear-gradient(to bottom, #ff3c3c 0%, #ff9c9c 60%);
 }
 
-.section.active{
-display:block;
+#records {
+    background: linear-gradient(to bottom, #2c3cff 0%, #6ec1ff 60%);
 }
 
-.login{
-max-width:350px;
-margin:100px auto;
-background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
-text-align:center;
+/* Headings */
+.box h2 {
+    margin-bottom: 20px;
 }
 
-.login h2{
-margin-bottom:20px;
-color:#0b0f6b;
+/* Inputs */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
-.main{
-display:flex;
-gap:30px;
-justify-content:center;
-flex-wrap:wrap;
+/* Buttons */
+.mainbutton {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background: #0b0f6b;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.box{
-background:white;
-padding:25px;
-border-radius:20px;
-width:400px;
-box-shadow:0 10px 25px rgba(0,0,0,0.2);
+.altbutton {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    background: #444;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.box h2{
-margin-bottom:15px;
-color:#0b0f6b;
+.mainbutton:hover {
+    background: #1c1f9e;
 }
 
-input{
-width:100%;
-padding:10px;
-margin:8px 0;
-border-radius:8px;
-border:1px solid #ccc;
+.altbutton:hover {
+    background: #222;
 }
 
-button{
-padding:10px;
-border:none;
-border-radius:20px;
-cursor:pointer;
+/* Table */
+.table-container {
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: 15px;
 }
 
-.mainbutton{
-background:#0b0f6b;
-color:white;
-width:100%;
-margin-top:10px;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
 }
 
-.altbutton{
-background:#444;
-color:white;
-width:100%;
-margin-top:5px;
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    font-size: 14px;
+    text-align: center;
 }
 
-.mainbutton:hover{
-background:#2c3cff;
-}
-
-.table{
-max-height:200px;
-overflow-y:auto;
-margin-top:15px;
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-}
-
-th,td{
-border:1px solid #ddd;
-padding:8px;
-font-size:14px;
-text-align:center;
-}
-
-th{
-background:#0b0f6b;
-color:white;
+th {
+    background: #0b0f6b;
+    color: white;
 }
