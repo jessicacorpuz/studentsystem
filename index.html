@@ -1,66 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ICCT Student System</title>
-    <link rel="stylesheet" href="style.css">
+<title>ICCT Student System</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="main">
-
-    <div class="left">
-        <div class="logo">
-            <img src="https://jaredbona.github.io/emt-project/img/ICCT.png" width="200">
-            <h1>ICCT</h1>
-            <p>Student Management System</p>
-            <footer class="footer">Jessica Mae Beatrice P. Corpuz</footer>
-        </div>
-    </div>
-
-    <div class="right">
-
-        <div class="box fillup">
-            <h2>Manage Student</h2>
-
-            <input type="text" id="studentid" placeholder="Student ID">
-            <input type="text" id="fullname" placeholder="Full Name">
-            <input type="text" id="course" placeholder="Course">
-            <input type="text" id="yearlevel" placeholder="Year Level">
-            <input type="number" id="age" placeholder="Age">
-
-            <button onclick="addStudent()" class="mainbutton">Add Student</button>
-            <button onclick="closeTab()" class="altbutton">Exit System</button>
-        </div>
-
-        <div class="box records-box">
-            <h2>Student Records</h2>
-
-            <input type="text" id="searchinput" placeholder="Search by Student ID or Name">
-            <button onclick="searchStudent()" class="mainbutton">Search</button>
-            <button onclick="displayStudents()" class="altbutton">Show All</button>
-            
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Course</th>
-                            <th>Year</th>
-                            <th>Age</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="studentrecords"></tbody>
-                </table>
-            </div>
-        </div>
-
-    </div>
-
+<div class="navbar">
+<button onclick="showsection('home')">Home</button>
+<button onclick="showsection('manage')">Manage Student</button>
+<button onclick="showsection('records')">Student Records</button>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<div id="home" class="section active">
+<div class="login">
+<h2>Student Login</h2>
+<input type="text" placeholder="Student Number">
+<input type="email" placeholder="Email">
+<input type="password" placeholder="Password">
+<button class="mainbutton" onclick="login()">Login</button>
+</div>
+</div>
+
+<div id="system" class="section">
+<div class="main">
+
+<div id="manage" class="box">
+<h2>Manage Students</h2>
+
+<input type="text" id="studentid" placeholder="Student ID">
+<input type="text" id="fullname" placeholder="Full Name">
+<input type="text" id="course" placeholder="Course">
+<input type="text" id="yearlevel" placeholder="Year Level">
+<input type="number" id="age" placeholder="Age">
+
+<button onclick="addstudent()" class="mainbutton">Add Student</button>
+<button onclick="clearfields()" class="altbutton">Clear</button>
+</div>
+
+<div id="records" class="box">
+<h2>Student Records</h2>
+
+<input type="text" id="searchinput" placeholder="Search by ID or Name">
+<button onclick="searchstudent()" class="mainbutton">Search</button>
+<button onclick="displaystudents()" class="altbutton">Show all</button>
+
+<div class="table">
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Name</th>
+<th>Course</th>
+<th>Year</th>
+<th>Age</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody id="studentrecords"></tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
