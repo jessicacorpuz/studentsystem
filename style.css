@@ -49,19 +49,19 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0; /* remove side padding for full-width navbar */
+  padding: 0;
   min-height: 100vh;
   overflow-y: auto;
 }
 
 .navbar {
   background: #0b0f6b;
-  padding: 15px 0; /* vertical padding only */
-  width: 100%;     /* span full width */
+  padding: 15px 0;
+  width: 100%;
   height: 8%;
   display: flex;
-  justify-content: center; /* center buttons horizontally */
-  gap: 10px;              /* spacing between buttons */
+  justify-content: center;
+  gap: 10px;
 }
 
 .navbar button {
@@ -163,32 +163,31 @@ button {
   background: linear-gradient(to bottom, #2c3cff 0%, #ffffff 60%);
   padding: 25px;
   border-radius: 20px;
-  width: max-content;       /* box width adjusts to its content */
+  width: max-content;
   min-width: 400px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
   display: flex;
-  flex-direction: column;   /* stack inputs and table */
+  flex-direction: column;
 }
 
 #records .table {
   margin-top: 10px;
-  max-height: 300px;        /* optional scroll limit */
-  overflow-y: auto;         /* vertical scroll if table grows too tall */
-  overflow-x: auto;         /* horizontal scroll if table wider than viewport */
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: auto;
 }
 
-/* Themed scrollbar for #records table */
 #records .table::-webkit-scrollbar {
-  width: 10px;            /* vertical scrollbar width */
-  height: 10px;           /* horizontal scrollbar height */
+  width: 10px;
+  height: 10px;
 }
 
 #records .table::-webkit-scrollbar-track {
-  background: #8db3b3;    /* light blue track */
+  background: #8db3b3;
 }
 
 #records .table::-webkit-scrollbar-thumb {
-  background: #0b0f6b;    /* dark blue thumb */
+  background: #0b0f6b;
   border-radius: 5px;
 }
 
@@ -208,19 +207,4 @@ td {
 th {
   background: #0b0f6b;
   color: white;
-}
-
-/* Responsive Fix */
-@media screen and (max-width: 900px) {
-  body {
-    flex-direction: column;
-  }
-  .left,
-  .right {
-    width: 100%;
-  }
-  .main {
-    flex-direction: column;
-    align-items: center;
-  }
 }
