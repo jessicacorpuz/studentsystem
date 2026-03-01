@@ -3,7 +3,7 @@ let students = [];
 // Load students from Vercel API
 async function loadStudents() {
     try {
-        const res = await fetch('/api/students');
+        const res = await fetch('/students');
         students = await res.json();
         displaystudents();
     } catch (err) {
@@ -14,7 +14,7 @@ async function loadStudents() {
 // Save students to Vercel API
 async function saveStudents() {
     try {
-        await fetch('/api/students', {
+        await fetch('/students', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(students)
