@@ -6,12 +6,10 @@ function savetolocalstorage(){
 
 function showsection(section){
 
+    // hide all main sections
     document.querySelectorAll(".section").forEach(sec=>{
         sec.classList.remove("active");
     });
-
-    document.getElementById("home").classList.remove("active");
-    document.getElementById("system").classList.remove("active");
 
     if(section === "home"){
         document.getElementById("home").classList.add("active");
@@ -22,7 +20,7 @@ function showsection(section){
         document.getElementById("manage").style.display = "none";
         document.getElementById("records").style.display = "none";
 
-        // show selected box
+        // show selected one
         document.getElementById(section).style.display = "block";
     }
 }
