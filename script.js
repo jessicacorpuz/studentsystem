@@ -90,7 +90,7 @@ function editstudent(id){
     document.getElementById("course").value = student.course;
     document.getElementById("yearlevel").value = student.year;
     document.getElementById("age").value = student.age;
-
+    showsection('manage');
     deletestudent(id);
 }
 
