@@ -1,30 +1,11 @@
-let students = [];
+let students = JSON.parse(localStorage.getItem("students")) || [];
 
-// Load students from Vercel API
-async function loadStudents() {
-    try {
-        const res = await fetch('/students');
-        students = await res.json();
-        displaystudents();
-    } catch (err) {
-        console.error('Failed to load students', err);
-    }
-}
-
-// Save students to Vercel API
-async function saveStudents() {
-    try {
-        await fetch('/students', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(students)
-        });
-    } catch (err) {
-        console.error('Failed to save students', err);
-    }
+function savetolocalstorage(){
+    localStorage.setItem("students", JSON.stringify(students));
 }
 
 function showsection(section){
+
     document.querySelectorAll(".section").forEach(sec=>{
         sec.classList.remove("active");
     });
@@ -33,8 +14,10 @@ function showsection(section){
         document.getElementById("home").classList.add("active");
     } else {
         document.getElementById("system").classList.add("active");
+
         document.getElementById("manage").style.display = "none";
         document.getElementById("records").style.display = "none";
+
         document.getElementById(section).style.display = "block";
     }
 }
@@ -44,7 +27,7 @@ function login(){
     showsection("manage");
 }
 
-async function addstudent(){
+function addstudent(){
     let id = document.getElementById("studentid").value.trim();
     let name = document.getElementById("fullname").value.trim();
     let course = document.getElementById("course").value.trim();
@@ -62,7 +45,7 @@ async function addstudent(){
     }
 
     students.push({id,name,course,year,age});
-    await saveStudents();       // save online
+    savetolocalstorage();
     displaystudents();
     clearfields();
 }
@@ -74,15 +57,15 @@ function displaystudents(filteredstudents = students){
     filteredstudents.forEach(student=>{
         table.innerHTML += `
         <tr>
-            <td>${student.id}</td>
-            <td>${student.name}</td>
-            <td>${student.course}</td>
-            <td>${student.year}</td>
-            <td>${student.age}</td>
-            <td>
-                <button onclick="editstudent('${student.id}')">Edit</button>
-                <button onclick="deletestudent('${student.id}')">Delete</button>
-            </td>
+        <td>${student.id}</td>
+        <td>${student.name}</td>
+        <td>${student.course}</td>
+        <td>${student.year}</td>
+        <td>${student.age}</td>
+        <td>
+        <button onclick="editstudent('${student.id}')">Edit</button>
+        <button onclick="deletestudent('${student.id}')">Delete</button>
+        </td>
         </tr>
         `;
     });
@@ -90,14 +73,16 @@ function displaystudents(filteredstudents = students){
 
 function searchstudent(){
     let value = document.getElementById("searchinput").value.toLowerCase();
+
     let filtered = students.filter(student =>
         student.id.toLowerCase().includes(value) ||
         student.name.toLowerCase().includes(value)
     );
+
     displaystudents(filtered);
 }
 
-async function editstudent(id){
+function editstudent(id){
     let student = students.find(s=>s.id===id);
 
     document.getElementById("studentid").value = student.id;
@@ -106,12 +91,12 @@ async function editstudent(id){
     document.getElementById("yearlevel").value = student.year;
     document.getElementById("age").value = student.age;
 
-    await deletestudent(id);
+    deletestudent(id);
 }
 
-async function deletestudent(id){
+function deletestudent(id){
     students = students.filter(student=>student.id!==id);
-    await saveStudents(); // update backend
+    savetolocalstorage();
     displaystudents();
 }
 
@@ -123,5 +108,4 @@ function clearfields(){
     document.getElementById("age").value="";
 }
 
-// Load students when page loads
-loadStudents();
+displaystudents();
