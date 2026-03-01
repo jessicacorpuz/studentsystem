@@ -1,149 +1,135 @@
+update it from this please
+
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:arial, sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:arial, sans-serif;
 }
 
 body{
-    background:#8eb2b5; /* lighter blue background behind boxes */
-    min-height:100vh;
-    color:#333;
+background:linear-gradient(135deg,#0b0f6b,#2c3cff);
+min-height:100vh;
+color:#333;
 }
 
-/* Main layout */
+.navbar{
+background:#111;
+padding:15px;
+text-align:center;
+}
+
+.navbar button{
+background:#0b0f6b;
+color:white;
+border:none;
+padding:10px 20px;
+margin:5px;
+border-radius:20px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.navbar button:hover{
+background:#2c3cff;
+}
+
+.section{
+display:none;
+padding:40px;
+}
+
+.section.active{
+display:block;
+}
+
+.login{
+max-width:350px;
+margin:100px auto;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+text-align:center;
+}
+
+.login h2{
+margin-bottom:20px;
+color:#0b0f6b;
+}
+
 .main{
-    display:flex;
-    height:100vh;
+display:flex;
+gap:30px;
+justify-content:center;
+flex-wrap:wrap;
 }
 
-/* Sidebar */
-.left{
-    width:30%;
-    background:#0b0f6b; /* dark blue sidebar */
-    color:white;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    padding:40px 20px;
-}
-
-.logo img{
-    width:150px;
-    margin-bottom:20px;
-}
-
-.logo h1{
-    font-size:50px;
-    margin-bottom:10px;
-}
-
-.logo p{
-    font-size:16px;
-    text-align:center;
-    margin-bottom:20px;
-}
-
-.footer{
-    margin-top:auto;
-    font-size:14px;
-    opacity:0.8;
-}
-
-/* Right content area */
-.right{
-    width:70%;
-    display:flex;
-    justify-content:center;
-    align-items:flex-start;
-    padding:50px;
-    gap:40px;
-    flex-wrap:wrap;
-}
-
-/* Boxes */
 .box{
-    width:400px;
-    border-radius:25px;
-    padding:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
-    color:white;
-    background:linear-gradient(135deg,#2c3cff,#6ec1ff); /* blue gradient for all boxes */
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.box:hover{
-    transform:translateY(-5px);
-    box-shadow:0 15px 30px rgba(0,0,0,0.3);
+background:white;
+padding:25px;
+border-radius:20px;
+width:400px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
 }
 
 .box h2{
-    margin-bottom:20px;
+margin-bottom:15px;
+color:#0b0f6b;
 }
 
-/* Inputs */
 input{
-    width:100%;
-    padding:10px;
-    margin:8px 0;
-    border-radius:8px;
-    border:1px solid #ccc;
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:8px;
+border:1px solid #ccc;
 }
 
-/* Buttons */
 button{
-    padding:10px;
-    border:none;
-    border-radius:20px;
-    cursor:pointer;
+padding:10px;
+border:none;
+border-radius:20px;
+cursor:pointer;
 }
 
 .mainbutton{
-    background:#0b0f6b;
-    color:white;
-    width:100%;
-    margin-top:10px;
-    transition:0.3s;
+background:#0b0f6b;
+color:white;
+width:100%;
+margin-top:10px;
 }
 
 .altbutton{
-    background:#444;
-    color:white;
-    width:100%;
-    margin-top:5px;
-    transition:0.3s;
+background:#444;
+color:white;
+width:100%;
+margin-top:5px;
 }
 
 .mainbutton:hover{
-    background:#1c1f9e;
+background:#2c3cff;
 }
 
-.altbutton:hover{
-    background:#222;
-}
-
-/* Table */
 .table{
-    max-height:200px;
-    overflow-y:auto;
-    margin-top:15px;
+max-height:200px;
+overflow-y:auto;
+margin-top:15px;
 }
 
 table{
-    width:100%;
-    border-collapse:collapse;
-    background:white;
+width:100%;
+border-collapse:collapse;
 }
 
 th,td{
-    border:1px solid #ddd;
-    padding:8px;
-    font-size:14px;
-    text-align:center;
+border:1px solid #ddd;
+padding:8px;
+font-size:14px;
+text-align:center;
 }
 
 th{
-    background:#0b0f6b;
-    color:white;
+background:#0b0f6b;
+color:white;
 }
